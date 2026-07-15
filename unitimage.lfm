@@ -1,0 +1,217 @@
+object FormImage: TFormImage
+  Left = 630
+  Height = 267
+  Top = 369
+  Width = 536
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Adicionar Imagem'
+  ClientHeight = 267
+  ClientWidth = 536
+  Position = poDesktopCenter
+  LCLVersion = '4.6.0.0'
+  OnClose = FormClose
+  object GroupBoxConfig: TGroupBox
+    Left = 5
+    Height = 133
+    Top = 85
+    Width = 526
+    Align = alClient
+    BorderSpacing.Around = 5
+    Caption = 'Configurações'
+    ClientHeight = 113
+    ClientWidth = 522
+    TabOrder = 0
+    object RadioGroupAlign: TRadioGroup
+      Left = 5
+      Height = 103
+      Top = 5
+      Width = 200
+      Align = alLeft
+      AutoFill = True
+      BorderSpacing.Around = 5
+      Caption = 'Alinhamento'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 2
+      ClientHeight = 83
+      ClientWidth = 196
+      Columns = 2
+      ItemIndex = 0
+      Items.Strings = (
+        'Esquerda'
+        'Direita'
+      )
+      TabOrder = 0
+    end
+    object RadioGroupSize: TRadioGroup
+      Left = 210
+      Height = 103
+      Top = 5
+      Width = 307
+      Align = alClient
+      AutoFill = True
+      BorderSpacing.Around = 5
+      Caption = 'Tamanho'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsSameSize
+      ChildSizing.EnlargeVertical = crsSameSize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 2
+      ClientHeight = 83
+      ClientWidth = 303
+      Columns = 2
+      ItemIndex = 0
+      Items.Strings = (
+        'Original'
+        'Redimensionar'
+      )
+      TabOrder = 1
+      OnSelectionChanged = RadioGroupSizeSelectionChanged
+      object PanelWidth: TPanel
+        Left = 6
+        Height = 41
+        Top = 42
+        Width = 146
+        BevelOuter = bvNone
+        ClientHeight = 41
+        ClientWidth = 146
+        Enabled = False
+        TabOrder = 1
+        object Label2: TLabel
+          Left = 0
+          Height = 41
+          Top = 0
+          Width = 40
+          Align = alLeft
+          Caption = 'Largura'
+          Layout = tlCenter
+        end
+        object SpinEditWidth: TSpinEdit
+          Left = 46
+          Height = 29
+          Top = 6
+          Width = 94
+          Align = alClient
+          BorderSpacing.Around = 6
+          MaxValue = 800
+          MinValue = 10
+          TabOrder = 0
+          Value = 320
+        end
+      end
+      object PanelHeight: TPanel
+        Left = 152
+        Height = 41
+        Top = 42
+        Width = 145
+        BevelOuter = bvNone
+        ClientHeight = 41
+        ClientWidth = 145
+        Enabled = False
+        TabOrder = 2
+        object LabelHeight: TLabel
+          Left = 0
+          Height = 41
+          Top = 0
+          Width = 32
+          Align = alLeft
+          Caption = 'Altura'
+          Layout = tlCenter
+        end
+        object SpinEditHeight: TSpinEdit
+          Left = 37
+          Height = 31
+          Top = 5
+          Width = 103
+          Align = alClient
+          BorderSpacing.Around = 5
+          MaxValue = 600
+          MinValue = 10
+          TabOrder = 0
+          Value = 240
+        end
+      end
+    end
+  end
+  object PanelButtons: TPanel
+    Left = 0
+    Height = 44
+    Top = 223
+    Width = 536
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 44
+    ClientWidth = 536
+    TabOrder = 1
+    object BtnAdd: TBitBtn
+      Left = 4
+      Height = 36
+      Top = 4
+      Width = 120
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = 'Adicionar'
+      Images = FormPrincipal.ImageListPrincipal
+      ImageIndex = 23
+      TabOrder = 0
+      OnClick = BtnAddClick
+    end
+    object BtnCancel: TBitBtn
+      Left = 128
+      Height = 36
+      Top = 4
+      Width = 120
+      Align = alLeft
+      BorderSpacing.Around = 4
+      Caption = 'Cancelar'
+      Images = FormPrincipal.ImageListPrincipal
+      ImageIndex = 21
+      TabOrder = 1
+      OnClick = BtnCancelClick
+    end
+  end
+  object GroupBoxImage: TGroupBox
+    Left = 5
+    Height = 75
+    Top = 5
+    Width = 526
+    Align = alTop
+    BorderSpacing.Around = 5
+    Caption = 'Imagem'
+    ClientHeight = 55
+    ClientWidth = 522
+    TabOrder = 2
+    object LabelFile: TLabel
+      Left = 15
+      Height = 25
+      Top = 15
+      Width = 42
+      Align = alLeft
+      BorderSpacing.Around = 15
+      Caption = 'Arquivo'
+      Layout = tlCenter
+    end
+    object FileNameImage: TFileNameEdit
+      Left = 72
+      Height = 25
+      Top = 15
+      Width = 435
+      FilterIndex = 0
+      HideDirectories = False
+      ButtonWidth = 23
+      DirectInput = False
+      NumGlyphs = 1
+      Align = alClient
+      BorderSpacing.Around = 15
+      MaxLength = 0
+      TabOrder = 0
+    end
+  end
+end

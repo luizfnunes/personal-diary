@@ -1,0 +1,90 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 303
+  HorizontalOffset = 283
+  VerticalOffset = 158
+  Width = 271
+  object ZConnectionMain: TZConnection
+    ControlsCodePage = cCP_UTF8
+    Properties.Strings = (
+      'RawStringEncoding=DB_CP'
+    )
+    Connected = True
+    DisableSavepoints = False
+    Port = 0
+    Database = 'F:\Projects\Lazarus\diario\data\DATABASE.FDB'
+    User = 'SYSDBA'
+    Password = 'masterkey'
+    Protocol = 'firebird'
+    Left = 88
+    Top = 40
+  end
+  object ZTableRegistry: TZTable
+    OnFilterRecord = ZTableRegistryFilterRecord
+    Connection = ZConnectionMain
+    TableName = 'REGISTER'
+    Left = 88
+    Top = 120
+    object ZTableRegistryTITLE: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'TITLE'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ZTableRegistryTITLEGetText
+      Size = 100
+    end
+    object ZTableRegistryID: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ZTableRegistryCREATED_AT: TZDateField
+      FieldKind = fkData
+      FieldName = 'CREATED_AT'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ZTableRegistryCONTENT: TZRawCLobField
+      FieldKind = fkData
+      FieldName = 'CONTENT'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftMemo
+      Transliterate = False
+    end
+  end
+  object ZROQueryTmp: TZReadOnlyQuery
+    Connection = ZConnectionMain
+    SQL.Strings = (
+      'SELECT CAST(CREATED_AT AS DATE) AS CREATED_AT FROM REGISTER'
+    )
+    Params = <>
+    Left = 88
+    Top = 192
+  end
+  object ZTableUser: TZTable
+    Filter = 'id=1'
+    Connection = ZConnectionMain
+    TableName = 'USERS'
+    Left = 184
+    Top = 120
+  end
+  object ZQueryTmp: TZQuery
+    Params = <>
+    Left = 192
+    Top = 192
+  end
+end
