@@ -1,0 +1,40 @@
+# Arquivos de backup e cache
+backup/
+lib/
+units/
+
+# Binários e arquivos compilados
+*.exe
+*.so
+*.dylib
+*.ppu
+*.o
+*.or
+*.res
+*.compiled
+*.dbg
+
+# Arquivos de estado e session da IDE
+*.lps
+*.lrs
+*.rst
+*.rsj
+
+# Outros arquivos temporários
+*.bak
+*.~*
+*.rsj
+*.a
+*.or
+*.dbg
+
+# Configurações de ambiente de projeto
+*.fpcunit.ini
+testdefaults.ini
+
+# Opcional: Arquivos de pacotes compilados
+*.ppl
+*.pcp
+
+# Diretórios temporários de pacotes
+package/
